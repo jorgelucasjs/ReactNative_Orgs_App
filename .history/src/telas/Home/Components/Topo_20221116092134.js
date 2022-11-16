@@ -1,0 +1,43 @@
+import {Image, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect} from 'react';
+
+import logo from '../../../assets/logo.png';
+import {carregaTopo} from '../../../servicos/carregaDados';
+
+const Topo = () => {
+  useEffect(() => {
+    const restorno = carregaTopo();
+    console.log(restorno);
+  }, []);
+
+  return (
+    <View style={styles.topo}>
+      <Image source={logo} style={styles.image} />
+      <Text style={styles.boasVindas}>Olá Jorge</Text>
+      <Text style={styles.legenda}>Encontre os melhores produtores</Text>
+    </View>
+  );
+};
+
+export default Topo;
+
+const styles = StyleSheet.create({
+  topo: {
+    backgroundColor: '#F6F6F6',
+    padding: 16,
+  },
+  image: {
+    width: 70,
+    height: 28,
+  },
+  boasVindas: {
+    marginTop: 24,
+    fontSize: 26,
+    lineHeight: 42,
+    fontWeight: 'bold',
+  },
+  legenda: {
+    fontSize: 16,
+    lineHeight: 26,
+  },
+});
